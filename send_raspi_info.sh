@@ -1,14 +1,22 @@
 #!/bin/bash
 # Script will gather some information and sent it via mail!
+#
+# --- VERSIONING ---
 # Version 1.0 -- initial creation
 # Version 1.1 -- adjustments
 # Version 1.2 -- change command for DDCLIENT status
 # Version 1.3 -- using file for variables 
 # Version 1.4 -- small adjustments
+# Version 2.0 -- using GitHub for versioning
 #
 #
-# Source the file with vairables
-source ./send_raspi_info_variables.txt
+# --- SOURCE FILE WITH VARIABLES --- 
+# Source the file with vairables -- USE COMPLETE PATH
+source /home/pi/Scripts/send_raspi_info_variables.txt
+# You will need a file with the variables "EMAIL" and "RASPI_EMAIL"
+#
+#
+# --- DEFINE LOCAL VARIABLES --- 
 # Define local variables for script
 DATE="$(date)"
 UPTIME_FOR=$(uptime -p)
@@ -56,6 +64,7 @@ VPN=$(sudo more /var/log/openvpn.log |egrep "Peer|Inactivity")
 	echo "[DynDNS Status]"
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "$DDCLIENT_SERVICE"
+	echo
 	echo "$DDCLIENT_LOG"
 	echo
 	echo
