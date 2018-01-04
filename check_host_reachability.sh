@@ -2,6 +2,7 @@
 # Simple Ping Monitor for hosts
 #
 # We parse this file to retrieve Hosts
+# You have to create a file with hosts/IP-addresses with name "host.list" in the mentioned folder
 HOSTS=$(cat /home/pi/Scripts/hosts.list)
 
 ## Check Hosts and compile a list of ones that may be unreachable
